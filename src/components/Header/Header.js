@@ -1,4 +1,4 @@
-import React, { useContext, useRef } from 'react'
+import React, { useContext } from 'react'
 import { store } from '../../store'
 import useLocales from '../../hooks/useLocales'
 import styles from './Header.module.scss'
@@ -6,9 +6,6 @@ import styles from './Header.module.scss'
 const Header = () => {
   const { status, data, error } = useLocales()
   const { state, dispatch } = useContext(store)
-  const {
-    app: { locale: currentLocale },
-  } = state
 
   if (status === 'loading') {
     return <div>Loading...</div>
@@ -33,14 +30,12 @@ const Header = () => {
             })
           }
         >
-          {currentLocale.code === locale.code && '* '}
+          {state.app.locale.code === locale.code && '* '}
           {locale.name}
         </button>
       ))}
     </header>
   )
-
-  return <h1>Header</h1>
 }
 
 export default Header

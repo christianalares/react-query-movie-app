@@ -1,4 +1,4 @@
-import React, { useEffect, useContext } from 'react'
+import React, { useContext } from 'react'
 import { ReactQueryConfigProvider } from 'react-query'
 import { ReactQueryDevtools } from 'react-query-devtools'
 import { StateProvider } from '../../store'
@@ -33,7 +33,17 @@ function App() {
 
   return (
     <div>
-      <pre>{JSON.stringify(state, null, 2)}</pre>
+      <div
+        style={{
+          padding: 8,
+          margin: 8,
+          background: '#eee',
+          border: '1px solid #bbb',
+        }}
+      >
+        State:
+        <pre>{JSON.stringify(state, null, 2)}</pre>
+      </div>
       <Header />
       <main>
         <Movies />
@@ -47,6 +57,6 @@ export default () => (
     <StateProvider>
       <App />
     </StateProvider>
-    <ReactQueryDevtools />
+    {process.env.NODE_ENV === 'development' && <ReactQueryDevtools />}
   </ReactQueryConfigProvider>
 )
