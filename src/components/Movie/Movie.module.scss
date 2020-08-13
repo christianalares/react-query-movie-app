@@ -1,0 +1,42 @@
+.movie {
+  border: 1px solid black;
+  padding: 16px;
+  background: #eee;
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+
+  h2 {
+    text-align: center;
+    margin: 16px 0;
+  }
+
+  .coverImg {
+    max-width: 100%;
+  }
+
+  .rating {
+    margin-top: auto;
+  }
+
+  .author {
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid #999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #777;
+    font-size: 0.8em;
+
+    img {
+      max-width: 20px;
+      margin-right: 8px;
+      border-radius: 50%;
+    }
+  }
+
+  + .movie {
+    margin-left: 8px;
+  }
+}
