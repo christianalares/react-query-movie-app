@@ -22,7 +22,10 @@ const StateProvider = ({ children }) => {
           ...state,
           app: {
             ...state.app,
-            locale: action.payload,
+            locale: {
+              code: action.payload.code,
+              name: action.payload.name,
+            },
           },
         }
       default:
