@@ -57,6 +57,6 @@ export default () => (
     <StateProvider>
       <App />
     </StateProvider>
-    {process.env.NODE_ENV === 'development' && <ReactQueryDevtools />}
+    <ReactQueryDevtools />
   </ReactQueryConfigProvider>
 )
